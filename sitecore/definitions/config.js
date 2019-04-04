@@ -15,6 +15,7 @@ require('@babel/register')({
       },
     ],
   ],
+  ignore: [/node_modules\/(?!jss-carousel)/],
   // override React default Babel config
   babelrc: false,
 });

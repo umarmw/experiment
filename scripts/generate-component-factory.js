@@ -25,6 +25,9 @@ const chokidar = require('chokidar');
 const componentFactoryPath = path.resolve('src/temp/componentFactory.js');
 const componentRootPath = 'src/components';
 
+const config = require("../src/external-components.json");
+const externalComponents = config.externalComponents || {};
+
 const isWatch = process.argv.some((arg) => arg === '--watch');
 
 if (isWatch) {
@@ -60,6 +63,18 @@ function generateComponentFactory() {
 
   const imports = [];
   const registrations = [];
+  const externalModules = Object.keys(externalComponents);
+
+  if (externalModules.length) {
+    externalModules.forEach(modulePath => {
+      const components = externalComponents[modulePath];
+      components.forEach(component => {
+        console.debug(`Registering JSS component ${component}`);
+        imports.push(`import { ${component} } from '${modulePath}';`);
+        registrations.push(`components.set('${component}', ${component});`);
+      });
+    });
+  }
 
   fs.readdirSync(componentRootPath).forEach((componentFolder) => {
     const componentFolderFullPath = path.join(componentRootPath, componentFolder);

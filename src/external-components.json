@@ -1,0 +1,8 @@
+{
+    "externalComponents": {
+      "../node_modules/jss-carousel/dist/components": [
+        "CarouselContainer",
+        "CarouselSlide"
+      ]
+    }
+  }
