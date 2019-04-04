@@ -37,6 +37,11 @@ const proxyOptions = {
       console.log('Manifest data updated. Refresh the browser to see latest content!');
     }
   },
+  sourceFiles: [
+    './sitecore/definitions/**/*.sitecore.js',
+    './sitecore/definitions/**/*.sitecore.ts',
+    './node_modules/jss-carousel/sitecore/definitions/**/*.sitecore.js'
+  ],
 };
 
 // Need to customize something that the proxy options don't support?

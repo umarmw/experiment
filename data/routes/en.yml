@@ -20,9 +20,9 @@ fields:
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-main:
-  - componentName: CarouselWrapper
+  - componentName: CarouselContainer
     placeholders:
-      jss-carousel-slides:
+      jss-carousel-slide:
       - componentName: CarouselSlide
         fields:
           imgSrc: '/data/media/img/nature_01.jpg'
